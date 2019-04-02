@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MasteryLevels.gg</title>
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            font-family: Josefin Sans, sans-serif;
+            background-color: deepskyblue;
+            color: white;
+        }
+        input, button {
+            font-family: Josefin Sans, sans-serif;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+        .logo {
+            margin: 20vh 0 20px 0;
+            font-size: 60px;
+        }
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        .summoner {
+            font-size: 28px;
+            text-align: center;
+            margin: 10px;
+            padding: 5px;
+        }
+        .regions {
+            padding: 10px;
+        }
+        .regions div {
+            display: inline-block;
+            padding: 5px;
+        }
+        .search {
+            font-size: 24px;
+            border-radius: 5px;
+        }
+        .message {
+            padding: 20px;
+            font-size: 24px;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <span class="logo"><a href="/">MasteryLevels.gg</a></span>
+        <input class="summoner" id="summoner" title="summoner">
+        <div class="regions">
+            <div>
+                <input id="NA" value="NA" type="radio" name="region" checked="checked">
+                <label for="NA">NA</label>
+            </div>
+            <div>
+                <input id="KR" value="KR" type="radio" name="region">
+                <label for="KR">KR</label>
+            </div>
+            <div>
+                <input id="JP" value="JP1" type="radio" name="region">
+                <label for="JP">JP</label>
+            </div>
+            <div>
+                <input id="EUW" value="EUW1" type="radio" name="region">
+                <label for="EUW">EUW</label>
+            </div>
+            <div>
+                <input id="EUN" value="EUN1" type="radio" name="region">
+                <label for="EUN">EUN</label>
+            </div>
+            <div>
+                <input id="OCE" value="OC1" type="radio" name="region">
+                <label for="OCE">OCE</label>
+            </div>
+            <br>
+            <div>
+                <input id="BR" value="BR1" type="radio" name="region">
+                <label for="BR">BR</label>
+            </div>
+            <div>
+                <input id="LAS" value="LA2" type="radio" name="region">
+                <label for="LAS">LAS</label>
+            </div>
+            <div>
+                <input id="LAN" value="LA1" type="radio" name="region">
+                <label for="LAN">LAN</label>
+            </div>
+            <div>
+                <input id="RU" value="RU" type="radio" name="region">
+                <label for="RU">RU</label>
+            </div>
+            <div>
+                <input id="TR" value="TR1" type="radio" name="region">
+                <label for="TR">TR</label>
+            </div>
+        </div>
+        <button class="search" onclick="search()">Search</button>
+        {% if message %}
+            <span class="message">{{ message }}</span>
+        {% endif %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function search() {
+            var region = document.querySelector('input[name="region"]:checked').value;
+            var summoner = document.getElementById('summoner').value;
+            if (region && summoner) {
+                window.location.href = '/' + region + '/' + summoner;
+            }
+        }
+
+        $(document).ready(function() {
+            $("#summoner").keyup(function(event) {
+                if (event.keyCode === 13) {
+                    search();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

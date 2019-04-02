@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MasteryLevels.gg | {{ summoner }}</title>
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            background-color: deepskyblue;
+        }
+        .content{
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px 40px 0 40px;
+            color: #ffffff;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .logo {
+            font-size: 36px;
+            float: left;
+            text-align: left;
+            width: 33.33%
+        }
+        .logo a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 5px 5px 5px;
+            border-radius: 5px;
+            background-color: slategrey;
+        }
+        .logo a:hover {
+            background-color: black;
+        }
+        .summoner {
+            font-size: 36px;
+            float: left;
+            text-align: center;
+            width: 33.33%
+        }
+        .champions {
+            display: inline-block;
+        }
+        .champion {
+            display: inline-block;
+            text-align: center;
+            padding: 10px 5px;
+            font-family: 'Josefin Sans', sans-serif;
+            color: #ffffff;
+        }
+        .outer {
+            width: 100%;
+            height: 10px;
+        }
+        .inner {
+            height: 100%;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="header">
+        <span class="logo"><a href="/">MasteryLevels.gg</a></span>
+        <span class="summoner">{{ summoner }}</span>
+    </div>
+    <div class="champions">
+        {% for champion, level, progress, chest, image_url in champions %}
+        <div class="champion">
+            <div class="outer">
+                <div class="inner" id="{{ champion }}">
+                </div>
+            </div>
+            <img src="{{ image_url }}"><br>
+            <span><strong>{{ champion }}</strong></span>
+            {% if chest %}
+            <img src="/static/chest.png" width="15" height="15">
+            {% endif %}
+            <br>
+            <span>Lvl {{ level }}</span>
+        </div>
+        <script>
+            document.getElementById('{{ champion }}').style.width = '{{ progress }}%';
+        </script>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
