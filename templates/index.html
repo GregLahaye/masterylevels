@@ -57,7 +57,7 @@
 <body>
     <div class="content">
         <span class="logo"><a href="/">MasteryLevels.gg</a></span>
-        <input class="summoner" id="summoner" title="summoner">
+        <input class="summoner" id="summoner" title="summoner" placeholder="Doublelift">
         <div class="regions">
             <div>
                 <input id="NA" value="NA1" type="radio" name="region" checked="checked">
@@ -110,6 +110,13 @@
             <span class="message">{{ message }}</span>
         {% endif %}
     </div>
+
+    <footer class="footer"> 
+        <div class="container">
+            <span class="text-muted"><a ref="https://www.github.com/GregLahaye/masterylevels">View the source code</a></span>
+        </div>
+    </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function search() {
