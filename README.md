@@ -4,5 +4,5 @@ about your account in order display the mastery level of each champion you have
 played.
 
 # Example
-![Example](example.gif "example")
+![Example](masterylevelsgg.gif "example")
 
