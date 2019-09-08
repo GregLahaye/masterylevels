@@ -1,3 +1,9 @@
+import sys
+path = '/home/MasteryLevels/mysite'
+if path not in sys.path:
+   sys.path.insert(0, path)
+
+
 from flask import Flask, render_template, request, redirect
 import config
 import riotgamesapi

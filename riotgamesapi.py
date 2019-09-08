@@ -77,7 +77,7 @@ def parse(masteries):
 
 
 def id_to_name(champion_id):
-    with open("champion.json") as file:
+    with open("/home/MasteryLevels/mysite/champion.json") as file:
         content = json.load(file)
 
     champions = content["data"]

@@ -2,7 +2,7 @@ import json
 
 
 def get_value(key):
-    with open("config.json") as file:
+    with open("/home/MasteryLevels/mysite/config.json") as file:
         content = json.load(file)
 
     if key in content.keys():
