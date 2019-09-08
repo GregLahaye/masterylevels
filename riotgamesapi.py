@@ -1,4 +1,5 @@
 import config
+import secrets
 import requests
 import json
 
@@ -6,7 +7,7 @@ import json
 def account(region, summoner):
     region = region.upper()
     if region in REGIONS:
-        key = config.get_value("key")
+        key = secrets.get_key()
 
         base_url = BASE_API.format(region=region)
         summoner_url = SUMMONER_API.format(summoner=summoner, key=key)
@@ -25,7 +26,7 @@ def account(region, summoner):
 
 
 def masteries(region, summoner_id):
-    key = config.get_value("key")
+    key = secrets.get_key()
 
     base_url = BASE_API.format(region=region)
     mastery_url = MASTERY_API.format(summoner_id=summoner_id, key=key)
@@ -68,6 +69,10 @@ def parse(masteries):
         info = [champion_name, champion_level, level_progress, chest_granted, image_url]
         champions.append(info)
 
+    # sort champions based on level, progress, chest, name
+    champions = sorted(champions, key=lambda champions:(champions[1],
+        champions[2], champions[3], champions[0]), reverse=True)
+    
     return champions
 
 

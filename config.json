@@ -1,18 +1,1 @@
-{
-    "key": "",
-    "version": {
-        "item": "9.6.1",
-        "rune": "7.23.1",
-        "mastery": "7.23.1",
-        "summoner": "9.6.1",
-        "champion": "9.6.1",
-        "profileicon": "9.6.1"
-    },
-    "reasons":
-    {
-        "a": "Couldn't fetch account",
-        "m": "Couldn't fetch mastery data",
-        "404": "That page does not exist",
-        "505": "Something went wrong"
-    }
-}
+{"version": {"item": "9.17.1", "rune": "7.23.1", "mastery": "7.23.1", "summoner": "9.17.1", "champion": "9.17.1", "profileicon": "9.17.1"}, "reasons": {"a": "Couldn't fetch account", "m": "Couldn't fetch mastery data", "404": "That page does not exist", "505": "Something went wrong"}}
